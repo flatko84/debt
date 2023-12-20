@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <title>
+            Debt
+        </title>
+    </head>
+    <body>
+        @yield('content')
+    </body>
+</html>
