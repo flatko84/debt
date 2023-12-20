@@ -51,14 +51,10 @@ class LoanController extends Controller
         $principal_per_month = $loan_amount / $months;
         $remaining_amount = $loan_amount;
         $interest = 0;
-        $full_years = floor($months / 12);
-        $incomplete_year_months = $months % 12;
+        $full_years = ceil($months / 12);
         for ($y = 0; $y < $full_years; $y++) {
             $interest += $remaining_amount * $this->interest;
             $remaining_amount -= $principal_per_month * 12;
-        }
-        if ($incomplete_year_months > 0) {
-            $interest += $remaining_amount * $this->interest;
         }
 
         return $loan_amount + $interest;
